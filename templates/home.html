@@ -1,0 +1,42 @@
+{% load static %}<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Boards</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="alert alert-success mt-4">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active">
+						<h5>Boards</h5>
+					</li>
+				</ol>
+			</div>
+			<table class="table table-striped">
+				<thead class="thead-inverse table-dark">
+					<tr>
+						<th scope="col">Board</th>
+						<th scope="col">Post</th>
+						<th scope="col">Topic</th>
+						<th scope="col">Last post</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for board in boards %}
+					<tr>
+						<td>
+							{{board.name}}
+							<small class="text-muted d-block">{{board.description}}</small>
+						</td>
+						<td class="align-middle">0</td>
+						<td class="align-middle">0</td>
+						<td class="align-middle">0</td>
+					</tr>
+					{% endfor%}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
