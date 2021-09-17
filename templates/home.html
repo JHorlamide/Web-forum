@@ -1,4 +1,36 @@
-{% load static %}<!DOCTYPE html>
+{% extends "base.html"%} 
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item active">Board</li>
+{% endblock %} 
+
+{% block content %}
+	<table class="table table-striped">
+		<thead class="thead-inverse table-dark">
+			<tr>
+				<th scope="col">Board</th>
+				<th scope="col">Post</th>
+				<th scope="col">Topic</th>
+				<th scope="col">Last post</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for board in boards %}
+			<tr>
+				<td>
+					<a href="{% url 'board_topics' board.pk %}">{{board.name}}</a>
+					<small class="text-muted d-block">{{board.description}}</small>
+				</td>
+				<td class="align-middle">0</td>
+				<td class="align-middle">0</td>
+				<td class="align-middle">0</td>
+			</tr>
+			{% endfor%}
+		</tbody>
+	</table>
+{% endblock %} 
+
+{% comment %} {% load static %}<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -27,7 +59,7 @@
 					{% for board in boards %}
 					<tr>
 						<td>
-							{{board.name}}
+							<a href="{% url 'board_topics' board.pk %}">{{board.name}}</a>
 							<small class="text-muted d-block">{{board.description}}</small>
 						</td>
 						<td class="align-middle">0</td>
@@ -40,3 +72,4 @@
 		</div>
 	</body>
 </html>
+{% endcomment %}
